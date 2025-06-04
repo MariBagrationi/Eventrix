@@ -1,4 +1,5 @@
 ﻿using Eventrix.App.Repositories;
+using Eventrix.App.Services;
 using Eventrix.Infrastructure;
 
 namespace Eventrix.API.Infrastructure.Extensions
@@ -11,6 +12,9 @@ namespace Eventrix.API.Infrastructure.Extensions
             services.AddScoped<ISubscriberRepository, SubscriberRepository>();
             services.AddScoped<IHostRepository, HostRepository>();
             services.AddScoped<IHostSubscriberRepository, HostSubscriberRepository>();
+
+            services.AddSingleton<IRedisService, RedisService>();
+
         }
     }
 }
