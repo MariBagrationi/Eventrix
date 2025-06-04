@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eventrix.API", "Eventrix\Eventrix.API.csproj", "{8C6942D4-8CAB-4F6E-A4D5-0A6FB9E8CF9B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eventrix.API", "Eventrix\Eventrix.API.csproj", "{8C6942D4-8CAB-4F6E-A4D5-0A6FB9E8CF9B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{1C5768B0-4C8E-463D-9FCB-17C390B9C517}"
 EndProject
@@ -11,15 +11,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentatio
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "core", "core", "{1B10951E-EE42-452C-914A-3D96EC266DC6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eventrix.App", "Eventrix.App\Eventrix.App.csproj", "{830D55BB-DAF4-4255-984E-96E9A2BE2666}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eventrix.App", "Eventrix.App\Eventrix.App.csproj", "{830D55BB-DAF4-4255-984E-96E9A2BE2666}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eventrix.Domain", "Eventrix.Domain\Eventrix.Domain.csproj", "{DCB3062D-6901-40B2-B6FD-0BEEC16669EB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eventrix.Domain", "Eventrix.Domain\Eventrix.Domain.csproj", "{DCB3062D-6901-40B2-B6FD-0BEEC16669EB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "infrastructure", "infrastructure", "{7BE6001A-901E-41C7-AE57-BE44841ED997}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eventrix.Infrastructure", "Eventrix.Infrastructure\Eventrix.Infrastructure.csproj", "{A676F857-20A7-4CAE-8359-5656283FB708}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eventrix.Infrastructure", "Eventrix.Infrastructure\Eventrix.Infrastructure.csproj", "{A676F857-20A7-4CAE-8359-5656283FB708}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eventrix.Persistence", "Eventrix.Persistence\Eventrix.Persistence.csproj", "{85D786A8-C320-4050-9F3F-FD66CB12B3BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eventrix.Persistence", "Eventrix.Persistence\Eventrix.Persistence.csproj", "{85D786A8-C320-4050-9F3F-FD66CB12B3BE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Worker", "Worker", "{7DC4D5D6-EFE5-4B01-AA2A-2CA5889D90A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eventrix.WorkerService", "Eventrix.WorkerService\Eventrix.WorkerService.csproj", "{61CDBD71-7DD0-42E1-973D-13E1E54701DD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,6 +51,10 @@ Global
 		{85D786A8-C320-4050-9F3F-FD66CB12B3BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{85D786A8-C320-4050-9F3F-FD66CB12B3BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{85D786A8-C320-4050-9F3F-FD66CB12B3BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61CDBD71-7DD0-42E1-973D-13E1E54701DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61CDBD71-7DD0-42E1-973D-13E1E54701DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61CDBD71-7DD0-42E1-973D-13E1E54701DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61CDBD71-7DD0-42E1-973D-13E1E54701DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,6 +68,8 @@ Global
 		{7BE6001A-901E-41C7-AE57-BE44841ED997} = {1C5768B0-4C8E-463D-9FCB-17C390B9C517}
 		{A676F857-20A7-4CAE-8359-5656283FB708} = {7BE6001A-901E-41C7-AE57-BE44841ED997}
 		{85D786A8-C320-4050-9F3F-FD66CB12B3BE} = {7BE6001A-901E-41C7-AE57-BE44841ED997}
+		{7DC4D5D6-EFE5-4B01-AA2A-2CA5889D90A7} = {1C5768B0-4C8E-463D-9FCB-17C390B9C517}
+		{61CDBD71-7DD0-42E1-973D-13E1E54701DD} = {7DC4D5D6-EFE5-4B01-AA2A-2CA5889D90A7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {385B4DEA-A673-4BC9-A51C-586508849A08}
