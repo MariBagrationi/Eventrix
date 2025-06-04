@@ -11,7 +11,7 @@ namespace Eventrix.Persistence.Context
 
         public DbSet<Subscriber> Subscribers { get; set; }
         public DbSet<Host> Hosts { get; set; }
-
+        public DbSet<HostSubscriber> HostSubscribers { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

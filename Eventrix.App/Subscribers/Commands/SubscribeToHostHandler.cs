@@ -1,4 +1,5 @@
 ﻿using Eventrix.App.Repositories;
+using Eventrix.Domain.Models;
 using MediatR;
 
 namespace Eventrix.App.Subscribers.Commands
@@ -20,31 +21,30 @@ namespace Eventrix.App.Subscribers.Commands
                 throw new ArgumentException($"Host with ID {request.HostId} does not exist.");
             }
 
-            bool GmailVerified = true;
-            await Task.Delay(1000, cancellationToken); // Simulate a delay for verification
-
-
-            if (GmailVerified)
+            //search gmail in the database and get the subscriber if already exists
+            var subscriber = await _subscriberRepository.GetSubscriberByEmailAsync(request.Email, cancellationToken);
+            if (subscriber == null)
             {
-                bool alreadyExists = await _subscriberRepository.AlreadyExistsAsync(request.Email, cancellationToken);
-                if (!alreadyExists)
+                //verify the gmail address and save the subscriber
+                bool GmailVerified = true;
+                if (!GmailVerified)
                 {
-                    await _subscriberRepository.SaveSubscriberAsync(
-                        request.Name,
-                        request.Email,
-                        request.SubscribedAt,
-                        cancellationToken
-                    );
+                    throw new ArgumentException("Gmail verification failed.");
                 }
-
-                var subscriber = await _subscriberRepository.GetSubscriberByEmailAsync(request.Email, cancellationToken);
-                subscriber.SubscribedHosts.Add(host!);
-                await _subscriberRepository.UpdateSubscriberAsync(subscriber, cancellationToken);
+              
+                await _subscriberRepository.SaveSubscriberAsync(request.Name, request.Email, DateTime.UtcNow, cancellationToken);
+                subscriber = await _subscriberRepository.GetSubscriberByEmailAsync(request.Email, cancellationToken);
             }
-            else
+           
+            var subscription = new HostSubscriber
             {
-                throw new ArgumentException("Gmail verification failed.");
-            }
+                HostId = request.HostId,
+                SubscriberId = subscriber!.Id,
+                SubscribedAt = DateTime.UtcNow
+            };
+
+            subscriber.SubscribedHosts.Add(subscription);
+            await _subscriberRepository.UpdateSubscriberAsync(subscriber, cancellationToken);
 
             return Unit.Value;
         }

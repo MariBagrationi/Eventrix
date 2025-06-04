@@ -21,9 +21,6 @@ namespace Eventrix.Persistence.Configurations
                     v => v,
                     v => new MailAddress(v).Address)
                 .IsUnicode(false); // Store as non-Unicode to save space
-
-            builder.Property(s => s.SubscribedAt);
-
         }
     }
 }

@@ -25,6 +25,13 @@ namespace Eventrix.Persistence.Configurations
             builder.Property(h => h.Bio)
                 .HasMaxLength(500)
                 .IsUnicode(false); // Store as non-Unicode to save space
+
+            builder.Property(h => h.ProfilePictureUrl);
+
+            builder.HasMany(h => h.Events)
+                .WithOne(e => e.Host)
+                .HasForeignKey(e => e.HostId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

@@ -34,7 +34,6 @@ namespace Eventrix.Infrastructure
             {
                 Name = name,
                 Email = email,
-                SubscribedAt = SubscribedAt
             }, cancellationToken);
         }
 

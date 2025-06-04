@@ -17,7 +17,7 @@ namespace Eventrix.API.Controllers
         }
 
         [HttpPost("/subscribe")]
-        public async Task<IActionResult> SubscribeToEvent([FromBody] SubscribeToHostCommand subscribeCommand, CancellationToken cancellationToken)
+        public async Task<IActionResult> SubscribeToHost([FromBody] SubscribeToHostCommand subscribeCommand, CancellationToken cancellationToken)
         {
             if (subscribeCommand == null)
             {
